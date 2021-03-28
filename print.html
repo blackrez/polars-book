@@ -1,0 +1,1482 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>polars-book</title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction/introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="getting_started.html"><strong aria-hidden="true">2.</strong> Getting started</a></li><li class="chapter-item expanded "><a href="#.html"><strong aria-hidden="true">3.</strong> IO</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="io/files.html"><strong aria-hidden="true">3.1.</strong> File IO</a></li><li class="chapter-item "><a href="io/aws.html"><strong aria-hidden="true">3.2.</strong> aws</a></li></ol></li><li class="chapter-item expanded "><a href="lazy_polars/intro.html"><strong aria-hidden="true">4.</strong> Lazy Polars</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="lazy_polars/predicate_pushdown.html"><strong aria-hidden="true">4.1.</strong> Predicate pushdown</a></li><li class="chapter-item "><a href="lazy_polars/projection_pushdown.html"><strong aria-hidden="true">4.2.</strong> Projection pushdown</a></li><li class="chapter-item "><a href="lazy_polars/other_optimizations.html"><strong aria-hidden="true">4.3.</strong> Other optimizations</a></li></ol></li><li class="chapter-item expanded "><a href="how_can_i/intro.html"><strong aria-hidden="true">5.</strong> How can I?</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="how_can_i/groupby.html"><strong aria-hidden="true">5.1.</strong> GroupBy</a></li><li class="chapter-item "><a href="how_can_i/aggregate.html"><strong aria-hidden="true">5.2.</strong> Aggregate</a></li><li class="chapter-item "><a href="how_can_i/conditionally_apply.html"><strong aria-hidden="true">5.3.</strong> Conditionally apply</a></li><li class="chapter-item "><a href="how_can_i/parse_dates.html"><strong aria-hidden="true">5.4.</strong> Parse dates</a></li><li class="chapter-item "><a href="how_can_i/use_custom_functions.html"><strong aria-hidden="true">5.5.</strong> Use custom functions</a></li><li class="chapter-item "><a href="how_can_i/process_strings.html"><strong aria-hidden="true">5.6.</strong> Process strings</a></li><li class="chapter-item "><a href="how_can_i/apply_window_functions.html"><strong aria-hidden="true">5.7.</strong> Apply window functions</a></li><li class="chapter-item "><a href="how_can_i/split_apply_combine.html"><strong aria-hidden="true">5.8.</strong> Split/ apply / combine</a></li></ol></li><li class="chapter-item expanded "><a href="numpy.html"><strong aria-hidden="true">6.</strong> Numpy interop</a></li><li class="chapter-item expanded "><a href="reference.html"><strong aria-hidden="true">7.</strong> Reference guide</a></li><li class="chapter-item expanded "><a href="performance/intro.html"><strong aria-hidden="true">8.</strong> Performance</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="performance/string_data.html"><strong aria-hidden="true">8.1.</strong> Performance and string data</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">polars-book</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>This book is an introduction to the Polars DataFrame library. The goal is to explain the inner workings of Polars
+by going through several examples and making comparisons to other solutions. We'll discuss what some design choices 
+have been and how you can use Polars optimally.</p>
+<p>Even though Polars is a Rust library the examples shown will be using the Python wrappers. The Python api is the easiest
+to get started with and allows easier experimentation.</p>
+<h2 id="goals-and-non-goals"><a class="header" href="#goals-and-non-goals">Goals and non-goals</a></h2>
+<p>The goal of Polars is being a fast DataFrame library that utilizes the available cores on your machine. Its ideal use case
+is data too big for pandas and too small for spark. Similar to spark Polars consists of a query planner that may 
+(and probably does) optimize your query in order to do less work or reduce memory usage.</p>
+<p>However if you really have big data that doesn't fit in memory of a single machine (even after filtering), Polars is not
+the solution to your problem.</p>
+<p>Polars is completely written in Rust and has no runtime overhead. Python bindings are exposed, but are merely a thin 
+wrapper and will not expose more functionality than the Rust library does.</p>
+<p>It consists of an eager api that is similar to pandas. With eager we mean that an operation is immediately executed and
+produces a result.</p>
+<p>The lazy api processes an interpretation of your query called a Logical Plan. This plan is optimized and reordered to 
+reduce query time and memory usage. When a result is requested Polars distributes the available work to different 
+<code>Executors</code> that use the algorithm available in the eager api to produce a result. Because the whole query context is
+known to the optimizer and executors of the logical plan, processes dependent on separate data sources can be parallelized
+on the fly.</p>
+<p><img src="introduction/../img/api_polars.svg" alt="api" /></p>
+<h3 id="current-status"><a class="header" href="#current-status">Current status</a></h3>
+<p>This is a concise summary of the features that allow Polars to meet its goals.</p>
+<ul>
+<li>Copy on write semantics
+<ul>
+<li>&quot;Free&quot; clones</li>
+<li>Cheap appends</li>
+</ul>
+</li>
+<li>Column oriented data storage 
+<ul>
+<li>No block manager (i.e. predictable performance)</li>
+</ul>
+</li>
+<li>Missing values indicated with bitmask
+<ul>
+<li>NaN != Missing</li>
+<li>allows for bitmask optimizations</li>
+</ul>
+</li>
+<li>Appending without clones</li>
+<li>Efficient algorithms
+<ul>
+<li>Joins</li>
+<li>Groupby</li>
+<li>Sorting</li>
+<li>Melts</li>
+<li>Explodes</li>
+<li>Pivots</li>
+<li>And more...</li>
+</ul>
+</li>
+<li>Query optimizations
+<ul>
+<li>Predicate pushdown
+<ul>
+<li>filtering at scan level</li>
+</ul>
+</li>
+<li>Projection pushdown
+<ul>
+<li>projection at scan level</li>
+</ul>
+</li>
+<li>Simplify expressions</li>
+<li>Parallel execution of Physical plan</li>
+</ul>
+</li>
+<li>SIMD vectorization</li>
+<li>numpy ufuncs work on Polars Series</li>
+</ul>
+<h2 id="possibilities"><a class="header" href="#possibilities">Possibilities</a></h2>
+<ul>
+<li>Memory mapped files
+<ul>
+<li>Out of core analysis.</li>
+</ul>
+</li>
+</ul>
+<h2 id="acknowledgements"><a class="header" href="#acknowledgements">Acknowledgements</a></h2>
+<p>Development of Polars is proudly powered by</p>
+<p><a href="https://www.xomnia.com"><img src="https://raw.githubusercontent.com/ritchie46/img/master/polars/xomnia_logo.png" alt="Xomnia" /></a></p>
+<h1 id="getting-started"><a class="header" href="#getting-started">Getting started</a></h1>
+<h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
+<p>Installing Polars is just a simple pip install. All binaries are pre-built for python &gt;= 3.6.</p>
+<p><code>$ pip3 install polars</code></p>
+<h2 id="quick-start"><a class="header" href="#quick-start">Quick start</a></h2>
+<p>Below we show a simple snippet that parses a csv and does a filter followed by a groupby operation.
+The eager API must feel very similar to users familiar to pandas. The lazy api is more declarative and describes what 
+you want, not how you want it.</p>
+<h3 id="eager-quickstart"><a class="header" href="#eager-quickstart">Eager quickstart</a></h3>
+<pre><code class="language-python">import polars as pl
+
+df = pl.read_csv(&quot;https://j.mp/iriscsv&quot;)
+df[df[&quot;sepal_length&quot;] &gt; 5].groupby(&quot;species&quot;).sum()
+</code></pre>
+<h3 id="lazy-quickstart"><a class="header" href="#lazy-quickstart">Lazy quickstart</a></h3>
+<pre><code class="language-python">(pl.scan_csv(&quot;iris.csv&quot;)
+     .filter(pl.col(&quot;sepal_length&quot;) &gt; 5)
+     .groupby(&quot;species&quot;)
+     .agg(pl.col(&quot;*&quot;).sum())
+).collect()
+</code></pre>
+<p>This outputs:</p>
+<div>
+   <style scoped>
+      .dataframe tbody tr th:only-of-type {
+      vertical-align: middle;
+      }
+      .dataframe tbody tr th {
+      vertical-align: top;
+      }
+      .dataframe thead th {
+      text-align: right;
+      }
+   </style>
+   <table border="1 "class="dataframe ">
+      <thead>
+         <tr>
+            <th>
+               species
+            </th>
+            <th>
+               sepal_length_sum
+            </th>
+            <th>
+               sepal_width_sum
+            </th>
+            <th>
+               petal_length_sum
+            </th>
+            <th>
+               petal_width_sum
+            </th>
+         </tr>
+         <tr>
+            <td>
+               str
+            </td>
+            <td>
+               f64
+            </td>
+            <td>
+               f64
+            </td>
+            <td>
+               f64
+            </td>
+            <td>
+               f64
+            </td>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>
+               "setosa"
+            </td>
+            <td>
+               116.9
+            </td>
+            <td>
+               81.7
+            </td>
+            <td>
+               33.2
+            </td>
+            <td>
+               6.1
+            </td>
+         </tr>
+         <tr>
+            <td>
+               "virginica"
+            </td>
+            <td>
+               324.5
+            </td>
+            <td>
+               146.2
+            </td>
+            <td>
+               273.1
+            </td>
+            <td>
+               99.6
+            </td>
+         </tr>
+         <tr>
+            <td>
+               "versicolor"
+            </td>
+            <td>
+               281.9
+            </td>
+            <td>
+               131.8
+            </td>
+            <td>
+               202.9
+            </td>
+            <td>
+               63.3
+            </td>
+         </tr>
+      </tbody>
+   </table>
+</div>
+<h2 id="reference-guide"><a class="header" href="#reference-guide">Reference guide</a></h2>
+<p>If you want to dive right into the API docs, follow one of these links.</p>
+<h3 id="eager-api"><a class="header" href="#eager-api">Eager API</a></h3>
+<p>The eager API is similar to pandas. Operations are executed directly in an imperative manner. 
+The important data structures are <a href="https://ritchie46.github.io/polars/python/polars/frame.html#polars.frame.DataFrame">DataFrame's</a> 
+and <a href="https://ritchie46.github.io/polars/python/polars/series.html#polars.series.Series">Series</a></p>
+<h3 id="lazy-api"><a class="header" href="#lazy-api">Lazy API</a></h3>
+<p>The lazy API builds a query plan. Nothing is executed until you explicitly ask polars to execute the query 
+(via <code>LazyFrame.collect()</code>, or <code>LazyFrame.fetch</code>). This provides polars with the entire context of the query and allows 
+for optimizations and choosing the fastest algorithm given that context.</p>
+<h4 id="lazyframe"><a class="header" href="#lazyframe">LazyFrame</a></h4>
+<p>A <code>LazyFrame</code> is a <code>DataFrame</code> abstraction that lazily keeps track of the query plan. 
+Read more about the <a href="https://ritchie46.github.io/polars/python/polars/lazy/index.html#polars.lazy.LazyFrame">Lazy DataFrame operations</a>.</p>
+<h4 id="expr"><a class="header" href="#expr">Expr</a></h4>
+<p>The arguments given to a <code>LazyFrame</code> can be constructed by building simple or complex queries. See the examples in the 
+<a href="https://ritchie46.github.io/polars-book/how_can_i/intro.html">how can I? section in the book</a>.</p>
+<p>The API of the <a href="https://ritchie46.github.io/polars/python/polars/lazy/index.html#polars.lazy.Expr">Expr can be found here</a>.</p>
+<h1 id="io"><a class="header" href="#io">IO</a></h1>
+<h1 id="file-io"><a class="header" href="#file-io">File IO</a></h1>
+<p>Polars support different file types and has its parsers are amongst the fastest there are. For instance,
+it's faster to load a CSV via polars to pandas, than directly from pandas. 
+Just do <code>pl.read_CSV(&quot;path.txt&quot;, rechunk=False).to_pandas()</code> and you're off.</p>
+<h2 id="csv-files"><a class="header" href="#csv-files">CSV files</a></h2>
+<p>So with that fun fact out of the way, loading a CSV file should be familiar:</p>
+<h3 id="read-csv"><a class="header" href="#read-csv">Read CSV</a></h3>
+<pre><code class="language-python">import polars as pl
+
+df = pl.read_csv(&quot;path.csv&quot;)
+</code></pre>
+<p>CSV files come in many different flavors, so make sure to check the 
+<a href="https://ritchie46.github.io/polars/python/polars/functions.html#polars.functions.read_CSV">read_CSV API</a></p>
+<p>Writing to a CSV file can be done with <a href="https://ritchie46.github.io/polars/python/polars/frame.html#polars.frame.DataFrame.to_csv">to_csv</a></p>
+<h3 id="write-csv"><a class="header" href="#write-csv">Write CSV</a></h3>
+<pre><code class="language-python">import polars as pl
+df = pl.DataFrame({
+    &quot;foo&quot;: [1, 2, 3],
+    &quot;bar&quot;: [None, &quot;egg&quot;, &quot;spam&quot;]
+})
+
+df.to_csv(&quot;path.csv&quot;)
+</code></pre>
+<h2 id="parquet-files"><a class="header" href="#parquet-files">Parquet files</a></h2>
+<p>Loading and writing parquet files are also as fast as can be. Pandas uses pyarrow to load parquet files into arrow memory
+and then has to copy that memory into pandas acceptable memory. In polars we don't have to pay that copy price, because
+we read parquet directly into arrow memory and we keep it there.</p>
+<h3 id="read-parquet"><a class="header" href="#read-parquet">Read Parquet</a></h3>
+<pre><code class="language-python">import polars as pl
+
+df = pl.read_parquet(&quot;path.csv&quot;)
+</code></pre>
+<h3 id="write-parquet"><a class="header" href="#write-parquet">Write Parquet</a></h3>
+<pre><code class="language-python">import polars as pl
+df = pl.DataFrame({
+    &quot;foo&quot;: [1, 2, 3],
+    &quot;bar&quot;: [None, &quot;egg&quot;, &quot;spam&quot;]
+})
+
+df.to_parquet(&quot;path.csv&quot;)
+</code></pre>
+<h2 id="scanning-files"><a class="header" href="#scanning-files">Scanning files</a></h2>
+<p>You can also scan a csv, and parquet files. Scanning delays the actual parsing of the files and returns a lazy computation
+holder, called a <code>LazyFrame</code>. If you want to know why you'd want this (and you do!) <a href="io/../lazy_polars/intro.html">read the lazy introduction</a></p>
+<pre><code class="language-python">import polars as pl
+
+# start a lazy query from a csv file.
+lf = pl.scan_csv(&quot;path.csv&quot;)
+
+
+# start a lazy query from a parquet file.
+lf = pl.scan_parquet(&quot;path.parquet&quot;)
+</code></pre>
+<h1 id="reading-a-parquet-file-from-aws-s3"><a class="header" href="#reading-a-parquet-file-from-aws-s3">Reading a Parquet file from AWS s3</a></h1>
+<p>To read a parquet file from s3, you'll need to install additional dependencies:</p>
+<ul>
+<li><code>$ pip install s3fs</code></li>
+</ul>
+<p>Next we can load a <code>parquet</code> file from aws like this:</p>
+<pre><code class="language-python">import s3fs
+import polars as pl
+import pyarrow.parquet as pq
+
+fs = s3fs.S3FileSystem()
+bucket = &quot;your-bucket&quot;
+path = &quot;your-path&quot;
+
+# load dataset
+p_dataset = pq.ParquetDataset(
+    f&quot;s3://{bucket}/{path}&quot;,
+    filesystem=fs
+)
+
+# read and convert to DataFrame
+df = pl.from_arrow(p_dataset.read())
+</code></pre>
+<h1 id="lazy-polars"><a class="header" href="#lazy-polars">Lazy Polars</a></h1>
+<p>We directly skip the eager API and dive into the lazy API of Polars. We will be exploring its functionality by exploring
+two medium large datasets of usernames; the <a href="https://www.reddit.com/r/datasets/comments/9i8s5j/dataset_metadata_for_69_million_reddit_users_in/">reddit usernames dataset</a>
+containing 69+ Million rows and a <a href="https://github.com/RuneStar/name-cleanup-2014">runescape username dataset</a> containing
+55+ Million rows.</p>
+<p>Let's write our first lines of Polars and see what kind of data we got. If you haven't done this already you can install
+polars from PyPi: <code>$ pip install --upgrade polars</code></p>
+<h2 id="reddit-data"><a class="header" href="#reddit-data">Reddit data</a></h2>
+<pre><code class="language-python">import polars as pl
+
+df = pl.read_csv(&quot;./data/reddit.csv&quot;, stop_after_n_rows=10)
+df.head()
+</code></pre>
+<pre><code class="language-text">shape: (5, 6)
+╭─────┬────────────────────────────┬─────────────┬────────────┬───────────────┬────────────╮
+│ id  ┆ name                       ┆ created_utc ┆ updated_on ┆ comment_karma ┆ link_karma │
+│ --- ┆ ---                        ┆ ---         ┆ ---        ┆ ---           ┆ ---        │
+│ i64 ┆ str                        ┆ i64         ┆ i64        ┆ i64           ┆ i64        │
+╞═════╪════════════════════════════╪═════════════╪════════════╪═══════════════╪════════════╡
+│ 1   ┆ &quot;truman48lamb_jasonbroken&quot; ┆ 1397113470  ┆ 1536527864 ┆ 0             ┆ 0          │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 2   ┆ &quot;johnethen06_jasonbroken&quot;  ┆ 1397113483  ┆ 1536527864 ┆ 0             ┆ 0          │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 3   ┆ &quot;yaseinrez_jasonbroken&quot;    ┆ 1397113483  ┆ 1536527864 ┆ 0             ┆ 1          │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 4   ┆ &quot;Valve92_jasonbroken&quot;      ┆ 1397113503  ┆ 1536527864 ┆ 0             ┆ 0          │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 5   ┆ &quot;srbhuyan_jasonbroken&quot;     ┆ 1397113506  ┆ 1536527864 ┆ 0             ┆ 0          │
+╰─────┴────────────────────────────┴─────────────┴────────────┴───────────────┴────────────╯
+</code></pre>
+<h2 id="runescape-data"><a class="header" href="#runescape-data">Runescape data</a></h2>
+<pre><code class="language-python">df = pl.read_csv(
+    &quot;./data/runescape.csv&quot;,
+</code></pre>
+<pre><code class="language-text">shape: (5, 1)
+╭───────────────╮
+│ column_1      │
+│ ---           │
+│ str           │
+╞═══════════════╡
+│ &quot;a000&quot;        │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ &quot;a0000&quot;       │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ &quot;a000000&quot;     │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ &quot;a0000000&quot;    │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ &quot;a0000000000&quot; │
+╰───────────────╯
+</code></pre>
+<p>As we can see, Polars pretty prints the DataFrames and includes a header with column names and the data type of that column.
+If you want to learn more about the data types Polars supports, 
+see the <a href="https://ritchie46.github.io/polars/polars/datatypes/enum.AnyType.html#variants">Rust reference</a> for a proper
+description and the <a href="https://ritchie46.github.io/polars/polars/datatypes.html">Python reference</a> for the wrappers in Python.</p>
+<p>Ok, that's easy enough. Next section we get into more interesting stuff. We will take a look at some optimizations Polars 
+does regarding predicates.</p>
+<h1 id="predicate-pushdown"><a class="header" href="#predicate-pushdown">Predicate pushdown</a></h1>
+<p>Predicate pushdown is an optimization Polars does that reduces query times and memory usage. 
+A predicate is database jargon for applying a filter on some table and thereby reducing number the number of rows on that
+table.</p>
+<p>So let's see if we can load some Reddit data and filter on a few predicates.</p>
+<pre><code class="language-python">from polars.lazy import *
+
+# A scan is a lazy read. This means nothing happens.
+reddit = pl.scan_csv(&quot;data/reddit.csv&quot;)
+
+reddit = (
+    reddit.filter(col(&quot;comment_karma&quot;) &gt; 0)  # only positive comment karma
+    .filter(col(&quot;link_karma&quot;) &gt; 0)  # only positive link karma
+    .filter(col(&quot;name&quot;).str_contains(r&quot;^a&quot;))  # filter name that start with an &quot;a&quot;
+)
+</code></pre>
+<p>If we were to run this query above, nothing would happen! This due to the lazyness, nothing will happend until specifically
+requested. This allows Polars to see the whole context of a query and optimize just in time for execution.</p>
+<p>Execution is requested by the <code>.collect</code> method. This would query all available data. During writing/ optimizing/ checking
+your query this is often not what you want. Another method that calls for execution is the <code>.fetch</code> method. <code>.fetch</code> takes 
+a parameter <code>n_rows</code> and tries to 'fetch' that number of rows at the data source (no guarantees are given though). </p>
+<p>So let's &quot;fetch&quot; ~10 Million rows from the source file and apply the predicates.</p>
+<pre><code class="language-python">reddit.fetch(n_rows=int(1e7))
+</code></pre>
+<pre><code class="language-text">shape: (286056, 6)
+╭──────────────┬────────────────────┬─────────────┬────────────┬───────────────┬────────────╮
+│ id           ┆ name               ┆ created_utc ┆ updated_on ┆ comment_karma ┆ link_karma │
+│ ---          ┆ ---                ┆ ---         ┆ ---        ┆ ---           ┆ ---        │
+│ i64          ┆ str                ┆ i64         ┆ i64        ┆ i64           ┆ i64        │
+╞══════════════╪════════════════════╪═════════════╪════════════╪═══════════════╪════════════╡
+│ 77860        ┆ &quot;aquarin&quot;          ┆ 1137474000  ┆ 1536528294 ┆ 150           ┆ 11         │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 77974        ┆ &quot;aadvaark&quot;         ┆ 1137301200  ┆ 1536528294 ┆ 26            ┆ 47         │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 78004        ┆ &quot;apoisel&quot;          ┆ 1137301200  ┆ 1536497404 ┆ 42            ┆ 2549       │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 78041        ┆ &quot;aonic&quot;            ┆ 1137301200  ┆ 1536497404 ┆ 2931          ┆ 2095       │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ ...          ┆ ...                ┆ ...         ┆ ...        ┆ ...           ┆ ...        │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 164422600931 ┆ &quot;andro__throwaway&quot; ┆ 1535637809  ┆ 1536828886 ┆ 16            ┆ 24         │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 164425093469 ┆ &quot;aislynn4mayor&quot;    ┆ 1535638157  ┆ 1536828886 ┆ 31            ┆ 44         │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 164425210920 ┆ &quot;archersheldon&quot;    ┆ 1535638216  ┆ 1536828886 ┆ 3             ┆ 6          │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 164452638720 ┆ &quot;aidenread06&quot;      ┆ 1535641723  ┆ 1536828887 ┆ 5             ┆ 6          │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 164470954056 ┆ &quot;alisha-hayes&quot;     ┆ 1535644043  ┆ 1536828888 ┆ 5             ┆ 16         │
+╰──────────────┴────────────────────┴─────────────┴────────────┴───────────────┴────────────╯
+</code></pre>
+<p>Above we see that from the 10 Million rows, 61503 rows match our predicate. </p>
+<h2 id="break-it-down"><a class="header" href="#break-it-down">Break it down</a></h2>
+<p>In Polars we can visualize the query plan. Let's take a look.</p>
+<pre><code class="language-python">reddit.show_graph(optimized=False)
+</code></pre>
+<p><img src="lazy_polars/../img/predicate_pushdown_0.png" alt="query_plan" /></p>
+<p>The astute reader maybe would notice that our query is not very optimal because we have 3 separate <em>FILTER</em> nodes. 
+That means that after every <em>FILTER</em> a new DataFrame is allocated, which will be input to the next <em>FILTER</em> and then 
+deleted from memory, that must be redundant.
+And you know what.. He/she is right, the predicates should be combined, we should have written this query:</p>
+<pre><code class="language-python">reddit_2 = reddit.filter(
+    (col(&quot;comment_karma&quot;) &gt; 0)
+    &amp; (col(&quot;link_karma&quot;) &gt; 0)
+    &amp; (col(&quot;name&quot;).str_contains(r&quot;^a&quot;))
+)
+</code></pre>
+<p>That would translate to:</p>
+<pre><code class="language-python">reddit_2.show_graph(optimized=False)
+</code></pre>
+<p><img src="lazy_polars/../img/predicate_pushdown_1.png" alt="query_plan" /></p>
+<p>As we can see the predicates are combined. This would lead to less copying of data </p>
+<h2 id="in-comes-optimization"><a class="header" href="#in-comes-optimization">In comes optimization</a></h2>
+<p>Polars tries to save that mental overhead from the query writer and combines predicates for you. Besides that, it pushes 
+predicates down to the scan level! Let's see how our optimized query looks.</p>
+<pre><code class="language-python">reddit.show_graph(optimized=True)
+</code></pre>
+<p><img src="lazy_polars/../img/predicate_pushdown_0_optimized.png" alt="query_plan" /></p>
+<p>It may be hard to see, but what is clear is that there is only a single node; the <em>CSV SCAN</em>. The predicate filtering
+is done during the reading of the csv. This means that this query's memory overhead is reduced by filtering factor!
+This makes a huge impact. </p>
+<h3 id="memory"><a class="header" href="#memory">Memory</a></h3>
+<p>As we have seen there were ~ 62,000 rows left after the <em>FILTER</em>. That means that 
+(aside for some memory overhead of the batch size and filter operations) we use \( \frac{6.2\text{e-}4}{1\text{e-}7} \sim 0.6 \text{%} \) 
+of the memory we would during an eager evaluation where we first would read the whole table in memory before applying a filter.</p>
+<h3 id="performance"><a class="header" href="#performance">Performance</a></h3>
+<p>At the time of writing this, the predicate pushdown also increased the query time performance.</p>
+<p><strong>without optimization</strong></p>
+<p><code>$ time time python -m book.src.examples.lazy_chapter.predicate_pushdown_0_timing False</code></p>
+<pre><code class="language-text">real	0m2,401s
+user	0m5,457s
+sys	0m0,894s
+</code></pre>
+<p><strong>with optimization</strong></p>
+<p><code>$ time time python -m book.src.examples.lazy_chapter.predicate_pushdown_0_timing True</code></p>
+<pre><code class="language-text">real	0m1,597s
+user	0m6,143s
+sys	0m0,647s
+</code></pre>
+<h2 id="relational-algebra"><a class="header" href="#relational-algebra">Relational algebra</a></h2>
+<p>In the visualization of the query plan, you see a \( \sigma \) symbol. This indicates a Predicate done at the <em>SCAN</em> level.
+There is also a \( \pi \) symbol indicating projection (database jargon for column selection), but we'll get to that later.</p>
+<h2 id="cheaper-joins"><a class="header" href="#cheaper-joins">Cheaper joins</a></h2>
+<p>Predicate pushdown optimization will generally also lead to cheaper join's. A join is quite an expensive operation
+the less rows we through at a join operation, the cheaper it becomes.</p>
+<h1 id="projection-pushdown"><a class="header" href="#projection-pushdown">Projection pushdown</a></h1>
+<p>Let's expand our query from the previous section by joining the result of the <em>FILTER</em> operation with the runescape data
+to see which popular Reddit username that have a username starting with an a also played Runescape. That must be something
+we are all interested in!</p>
+<p>The query that does so may look like this.</p>
+<pre><code class="language-python">reddit = pl.scan_csv(&quot;data/reddit.csv&quot;)
+runescape = pl.scan_csv(&quot;data/runescape.csv&quot;, has_headers=False).select(
+    col(&quot;column_1&quot;).alias(&quot;name&quot;)
+)
+
+reddit = (
+    reddit.filter(col(&quot;comment_karma&quot;) &gt; 0)
+    .filter(col(&quot;link_karma&quot;) &gt; 0)
+    .filter(col(&quot;name&quot;).str_contains(r&quot;^a&quot;))
+)
+
+joined = reddit.join(runescape, on=&quot;name&quot;, how=&quot;inner&quot;).select(
+    [&quot;name&quot;, &quot;comment_karma&quot;, &quot;link_karma&quot;]
+)
+joined.fetch(int(1e7))
+</code></pre>
+<p>And yields the following DataFrame.</p>
+<pre><code class="language-text">shape: (18953, 3)
+╭─────────────┬───────────────┬────────────╮
+│ name        ┆ comment_karma ┆ link_karma │
+│ ---         ┆ ---           ┆ ---        │
+│ str         ┆ i64           ┆ i64        │
+╞═════════════╪═══════════════╪════════════╡
+│ &quot;a00153&quot;    ┆ 2628          ┆ 13         │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ &quot;a0110a&quot;    ┆ 158           ┆ 6          │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ &quot;a097&quot;      ┆ 674           ┆ 4564       │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ &quot;a0990&quot;     ┆ 44            ┆ 10         │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ ...         ┆ ...           ┆ ...        │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ &quot;azzure11&quot;  ┆ 264           ┆ 509        │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ &quot;azzuron&quot;   ┆ 164           ┆ 56         │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ &quot;azzurri10&quot; ┆ 51868         ┆ 3353       │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ &quot;azzwhole&quot;  ┆ 18198         ┆ 311        │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ &quot;azzzr&quot;     ┆ 308           ┆ 526        │
+╰─────────────┴───────────────┴────────────╯
+</code></pre>
+<h2 id="break-it-down-1"><a class="header" href="#break-it-down-1">Break it down</a></h2>
+<p>Again, let's take a look the query plan. </p>
+<pre><code class="language-python">joined.show_graph(optimized=False)
+</code></pre>
+<p><img src="lazy_polars/../img/projection_pushdown_0.png" alt="query_plan" /></p>
+<p>Now were focussed on the projection's indicated with π. The first node shows π 3/6, indicating that
+we select 3 out of 6 columns in the DataFrame. If we look the csv scans we see a wildcard π */6 and π */1 meaning that 
+we select all of 6 columns of the reddit dataset and the one and only column from the runescape dataset respectively.</p>
+<p>This query is not very optimal. We select all columns from both datasets and only show 3/6 after join. That means that
+there were some columns computed during the join operation that could have been ignored. There were also columns parsed
+during csv scanning only to be dropped at the end. When we are dealing with DataFrame's with a large number of columns the
+redundant work that is done can be huge.</p>
+<h3 id="optimized-query"><a class="header" href="#optimized-query">Optimized query</a></h3>
+<p>Let's see how Polars optimizes this query.</p>
+<pre><code class="language-python">joined.show_graph(optimized=True)
+</code></pre>
+<p><img src="lazy_polars/../img/projection_pushdown_0_optimized.png" alt="query_plan_opt" /></p>
+<p>The projections are pushed down the join operation all the way to the csv scans. This  means that both the scanning and 
+join operation have become cheaper due to the query optimization.</p>
+<h2 id="performance-1"><a class="header" href="#performance-1">Performance</a></h2>
+<p>Let's time the result before and after optimization.</p>
+<p><strong>without optimization</strong></p>
+<p><code>$ time time python -m book.src.examples.lazy_chapter.projection_pushdown_0_timing False</code></p>
+<pre><code class="language-text">real	0m3,273s
+user	0m9,284s
+sys	0m1,081s
+</code></pre>
+<p><strong>with optimization</strong></p>
+<p><code>$ time time python -m book.src.examples.lazy_chapter.projection_pushdown_0_timing True</code></p>
+<pre><code class="language-text">real	0m1,732s
+user	0m7,581s
+sys	0m0,783s
+</code></pre>
+<p>We can see that we almost reduced query time by half on this simple query. With real business data often comprising of 
+many column, filtering missing data, doing complex groupby and joins we expect this difference between unoptimized queries
+and optimized queries to only grow.</p>
+<h1 id="other-optimizations"><a class="header" href="#other-optimizations">Other optimizations</a></h1>
+<p>Besides predicate and projection pushdown, Polars does other optimizations.</p>
+<p>One important one is optional caching and parallelization. One can imagine having two different DataFrame computations that
+lead to a scan of the same file. Polars may cache the scanned file to prevent scanning the same file twice. However, if 
+you want to, you may override this behavior and force polars to read the same file. This could
+be faster because the scan could be done in parallel.</p>
+<h2 id="join-parallelization"><a class="header" href="#join-parallelization">Join parallelization</a></h2>
+<p>If we look at the previous query, we see that the join operation has as input a computation path with <code>data/reddit.csv</code>
+as root and one path with <code>data/runescape.csv</code> as root. Polars can observe that there are no dependencies between the
+two DataFrame and will read both files in parallel. If other operations are done before the join (e.g. groupby, filters, etc.)
+they are also executed in parallel.</p>
+<p><img src="lazy_polars/../img/projection_pushdown_0_optimized.png" alt="query_plan_opt" /></p>
+<h2 id="simplify-expressions"><a class="header" href="#simplify-expressions">Simplify expressions</a></h2>
+<p>Some other optimizations that are done are expression simplifications. The impact of these optimizations is less than that
+of predicate and projection pushdown, but they likely add up. You can <a href="https://github.com/ritchie46/polars/issues/139">track this issue</a>
+to see the latest status of those.</p>
+<h1 id="how-can-i"><a class="header" href="#how-can-i">How can I?</a></h1>
+<p>This chapter contains some small examples that will get you up to speed with the most idiomatic way
+to get things done in Polars lazy.</p>
+<p>Are you more interested in getting up to speed with Polars eager? Check the 
+<a href="https://github.com/ritchie46/polars/blob/master/examples/10_minutes_to_polars.ipynb">10 minutes to Polars notebook</a>.</p>
+<h1 id="how-can-i-groupby"><a class="header" href="#how-can-i-groupby">How can I groupby?</a></h1>
+<p>The groupby operations is done with the <code>.groupby</code> method following by the <code>.agg</code> method.
+In the <code>.agg</code> method you can do as many aggregations on as many columns as you want.</p>
+<p>If you want to do a specific aggregation on all columns you can use the wildcard expression: <code>.agg(col(&quot;*&quot;).sum())</code></p>
+<h2 id="examples"><a class="header" href="#examples">Examples</a></h2>
+<pre><code class="language-python">import polars as pl
+from polars.lazy import col
+
+reddit = (
+    pl.scan_csv(&quot;data/reddit.csv&quot;)
+    .groupby(&quot;comment_karma&quot;)
+    .agg([col(&quot;name&quot;).n_unique().alias(&quot;unique_names&quot;), pl.max(&quot;link_karma&quot;)])
+    .sort(by_column=&quot;unique_names&quot;, reverse=True)
+reddit.fetch()
+</code></pre>
+<pre><code class="language-text">shape: (100, 3)
+╭───────────────┬──────────────┬────────────────╮
+│ comment_karma ┆ unique_names ┆ link_karma_max │
+│ ---           ┆ ---          ┆ ---            │
+│ i64           ┆ u32          ┆ i64            │
+╞═══════════════╪══════════════╪════════════════╡
+│ 0             ┆ 367          ┆ 611            │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 1             ┆ 9            ┆ 22             │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 3             ┆ 6            ┆ 1              │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 38            ┆ 4            ┆ 291            │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ ...           ┆ ...          ┆ ...            │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 65            ┆ 1            ┆ 0              │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 63167         ┆ 1            ┆ 24137          │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 2335          ┆ 1            ┆ 146            │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 706           ┆ 1            ┆ 410            │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 78            ┆ 1            ┆ 1              │
+╰───────────────┴──────────────┴────────────────╯
+</code></pre>
+<h1 id="how-can-i-aggregate"><a class="header" href="#how-can-i-aggregate">How can I aggregate?</a></h1>
+<p>Aggregations can be done in a <code>.select</code> or a <code>.with_column</code>/<code>with_columns</code> method.</p>
+<p>If you want to do a specific aggregation on all columns you can use the wildcard expression: <code>.select(col(&quot;*&quot;).sum())</code></p>
+<p>The aggregation functions available are (may be outdated):</p>
+<ul>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.avg">avg</a></li>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.avg">count</a></li>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.avg">first</a></li>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.avg">last</a></li>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.avg">list</a></li>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.avg">mean</a></li>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.avg">median</a></li>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.avg">n_unique</a></li>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.avg">min</a></li>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.avg">max</a></li>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.avg">sum</a></li>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.avg">var</a></li>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.avg">std</a></li>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.LazyFrame.quantile">quantile</a></li>
+</ul>
+<h2 id="examples-1"><a class="header" href="#examples-1">Examples</a></h2>
+<pre><code class="language-python">import polars as pl
+from polars.lazy import *
+
+reddit = pl.scan_csv(&quot;data/reddit.csv&quot;).select(
+    [pl.sum(&quot;comment_karma&quot;), pl.min(&quot;link_karma&quot;)]
+)
+
+
+reddit.fetch()
+</code></pre>
+<pre><code class="language-text">shape: (1, 2)
+╭───────────────┬────────────╮
+│ comment_karma ┆ link_karma │
+│ ---           ┆ ---        │
+│ i64           ┆ i64        │
+╞═══════════════╪════════════╡
+│ 242649        ┆ -109       │
+╰───────────────┴────────────╯
+</code></pre>
+<h1 id="how-can-i-conditionally-apply"><a class="header" href="#how-can-i-conditionally-apply">How can I conditionally apply</a></h1>
+<p>You often want to modify or add a column to DataFrame based on some condition/predicate. This is where
+the <code>when().then().otherwise()</code> expressions are for. As they are basically a full English sentence, they need no further
+explanation.</p>
+<h2 id="examples-2"><a class="header" href="#examples-2">Examples</a></h2>
+<pre><code class="language-python">import polars as pl
+from polars.lazy import col, when
+import numpy as np
+
+df = pl.DataFrame({&quot;range&quot;: np.arange(10), &quot;left&quot;: [&quot;foo&quot;] * 10, &quot;right&quot;: [&quot;bar&quot;] * 10})
+
+out = df.lazy().with_column(
+    when(col(&quot;range&quot;) &gt;= 5)
+    .then(col(&quot;left&quot;))
+    .otherwise(col(&quot;right&quot;))
+print(out.collect())
+</code></pre>
+<pre><code class="language-text">shape: (10, 4)
+╭───────┬───────┬───────┬────────────╮
+│ range ┆ left  ┆ right ┆ foo_or_bar │
+│ ---   ┆ ---   ┆ ---   ┆ ---        │
+│ i64   ┆ str   ┆ str   ┆ str        │
+╞═══════╪═══════╪═══════╪════════════╡
+│ 0     ┆ &quot;foo&quot; ┆ &quot;bar&quot; ┆ &quot;bar&quot;      │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 1     ┆ &quot;foo&quot; ┆ &quot;bar&quot; ┆ &quot;bar&quot;      │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 2     ┆ &quot;foo&quot; ┆ &quot;bar&quot; ┆ &quot;bar&quot;      │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 3     ┆ &quot;foo&quot; ┆ &quot;bar&quot; ┆ &quot;bar&quot;      │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ ...   ┆ ...   ┆ ...   ┆ ...        │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 5     ┆ &quot;foo&quot; ┆ &quot;bar&quot; ┆ &quot;foo&quot;      │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 6     ┆ &quot;foo&quot; ┆ &quot;bar&quot; ┆ &quot;foo&quot;      │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 7     ┆ &quot;foo&quot; ┆ &quot;bar&quot; ┆ &quot;foo&quot;      │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 8     ┆ &quot;foo&quot; ┆ &quot;bar&quot; ┆ &quot;foo&quot;      │
+├╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 9     ┆ &quot;foo&quot; ┆ &quot;bar&quot; ┆ &quot;foo&quot;      │
+╰───────┴───────┴───────┴────────────╯
+</code></pre>
+<h1 id="date-parsing"><a class="header" href="#date-parsing">Date parsing</a></h1>
+<p>Polars has two date data types:</p>
+<ul>
+<li>Date32 
+<ul>
+<li>a naive date represented as the number of days since the unix epoch as a 32 bit signed integer.</li>
+<li>Use this for Date objects</li>
+</ul>
+</li>
+<li>Date64
+<ul>
+<li>a naive datetime represented as the number of milliseconds since the unix epoch as a 64 bit signed integer.</li>
+<li>Use this for DateTime objects</li>
+</ul>
+</li>
+</ul>
+<p>Utf8 types can be parsed as one of the two date datetypes. You can try to let Polars parse the date(time) implicitly or
+apply you <code>fmt</code> rule. Some examples are:</p>
+<ul>
+<li><code>&quot;%Y-%m-%d&quot;</code> for <code>&quot;2020-12-31&quot;</code></li>
+<li><code>&quot;%Y/%B/%d&quot;</code> for <code>&quot;2020/December/31&quot;</code></li>
+<li><code>&quot;%B %y&quot;</code> for <code>&quot;December 20&quot;</code></li>
+</ul>
+<h2 id="examples-3"><a class="header" href="#examples-3">Examples</a></h2>
+<pre><code class="language-python">df = pl.DataFrame(
+    {&quot;date&quot;: [&quot;2020-01-02&quot;, &quot;2020-01-03&quot;, &quot;2020-01-04&quot;], &quot;index&quot;: [1, 2, 3]}
+)
+
+parsed = df.lazy().with_column(
+    col(&quot;date&quot;).str_parse_date(pl.datatypes.Date32, &quot;%Y-%m-%d&quot;)
+)
+print(parsed.collect())
+</code></pre>
+<pre><code class="language-text">shape: (3, 2)
+╭──────────────┬───────╮
+│ date         ┆ index │
+│ ---          ┆ ---   │
+│ date32(days) ┆ i64   │
+╞══════════════╪═══════╡
+│ 2020-01-02   ┆ 1     │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+│ 2020-01-03   ┆ 2     │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+│ 2020-01-04   ┆ 3     │
+╰──────────────┴───────╯
+</code></pre>
+<h1 id="how-can-i-use-custom-functions"><a class="header" href="#how-can-i-use-custom-functions">How can I use custom functions?</a></h1>
+<p>There will always be an operation so sketchy, so dirty, so grotesque, that you cannot do with the public API of Polars.
+Luckily we provide UDFs (User Defined Functions). This means you can define a python function/ lambda and pass it to the
+logical plan. You can use custom functions in both the eager API as well as the lazy API. </p>
+<h2 id="examples-4"><a class="header" href="#examples-4">Examples</a></h2>
+<p>Let's start with eager. Let's say we want to apply a map to a Series. This could be done as shown below.</p>
+<h3 id="eager"><a class="header" href="#eager">Eager</a></h3>
+<pre><code class="language-python">my_map = {1: &quot;foo&quot;, 2: &quot;bar&quot;, 3: &quot;ham&quot;, 4: &quot;spam&quot;, 5: &quot;eggs&quot;}
+
+s = pl.Series(&quot;a&quot;, [1, 2, 3, 4, 5])
+s = s.apply(lambda x: my_map[x])
+
+
+print(s.collect())
+</code></pre>
+<pre><code class="language-text">Series: 'a' [str]
+[
+	&quot;foo&quot;
+	&quot;bar&quot;
+	&quot;ham&quot;
+	&quot;spam&quot;
+	&quot;eggs&quot;
+]
+</code></pre>
+<p>There are a few gotcha's however. Polars Series can only contain a single datatype. (<em>storing custom Python objects is being worked on</em>)
+In the <code>.apply</code> method above we didn't specify the data type the Series should contain. Polars tries to infer the output
+datatype beforehand by calling the provided function itself. If it later gets a data type that does not matched the 
+initially inferred type, the value will be indicated as missing: <code>null</code>. If you already know the output datatype you need
+it's recommended to provide this information to Polars.</p>
+<pre><code class="language-python">s.apply(lambda x: my_map[x], dtype_out=pl.Utf8)
+</code></pre>
+<h3 id="lazy"><a class="header" href="#lazy">Lazy</a></h3>
+<p>In lazy you can apply custom functions via the <code>.map</code> and the <code>.apply</code> methods.</p>
+<h4 id="map"><a class="header" href="#map">map</a></h4>
+<p>You can use <code>map</code> to map from a <code>Series</code> to a <code>Series</code> or a <code>DataFrame</code> to 
+a <code>DataFrame</code>. </p>
+<h4 id="apply"><a class="header" href="#apply">apply</a></h4>
+<p>Or you can use <code>apply</code> to operate on the values of a <code>Series</code>. The function passed to <code>.apply</code> operate on a single primitive 
+(e.g. int, str, bool).
+The <code>lambda</code> we used above got <code>int</code> as input and returned <code>str</code> after finding the right key in the <code>dictionary</code>.</p>
+<p>When a custom function is used, the output type must also be provided
+because for the optimizer to be able to do optimizations the Schema of the query needs to be known at all times.</p>
+<pre><code class="language-python">import polars as pl
+from polars.lazy import *
+import numpy as np
+
+np.random.seed(1)
+
+df = pl.DataFrame({&quot;foo&quot;: np.arange(10), &quot;bar&quot;: np.random.rand(10)})
+
+# create a udf
+def my_custom_func(s: Series) -&gt; Series:
+    return np.exp(s) / np.log(s)
+
+
+# a simple wrapper that take a function and sets output type
+my_udf = udf(my_custom_func, output_type=pl.Float64)
+
+# run query with udf
+out = df.lazy().filter(col(&quot;bar&quot;).map(my_udf) &gt; -1)
+
+print(s.collect())
+</code></pre>
+<pre><code class="language-text">shape: (4, 2)
+╭─────┬───────╮
+│ foo ┆ bar   │
+│ --- ┆ ---   │
+│ i64 ┆ f64   │
+╞═════╪═══════╡
+│ 2   ┆ 0.0   │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+│ 4   ┆ 0.147 │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+│ 5   ┆ 0.092 │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌┤
+│ 6   ┆ 0.186 │
+╰─────┴───────╯
+</code></pre>
+<p>Above we've defined out own function, added this to the lazy query and it got executed during execution of the physical plan.
+This of course greatly increases flexibility of a query and when needed you are definitely encouraged to do so. This is however
+not without cost. Even though we only use vectorized code in this example (numpy functions and Polars comparisons), this query
+may still be slower than a full Polars native query. This is due to the Python <code>GIL</code>. As mentioned before, polars tries to parallelize
+the query execution on the available cores on your machine. However, in Python there may only be one thread modifying Python objects.
+So if you have many UDF's they'd have to wait in line until they are allowed there GIL time.</p>
+<h3 id="apply-1"><a class="header" href="#apply-1">Apply</a></h3>
+<p>Similarly as done in the eager example, we can also <code>apply</code> a lambda over the elements of a <code>Series</code>:</p>
+<pre><code class="language-python">import polars as pl
+from polars.lazy import *
+
+my_map = {1: &quot;foo&quot;, 2: &quot;bar&quot;, 3: &quot;ham&quot;, 4: &quot;spam&quot;, 5: &quot;eggs&quot;}
+
+df = pl.DataFrame({&quot;foo&quot;: [1, 2, 3, 4, 5]})
+
+# create a udf
+def my_custom_func(s: Series) -&gt; Series:
+    return s.apply(lambda x: my_map[x])
+
+
+# run query with udf
+out = df.lazy().with_column(col(&quot;foo&quot;).map(my_custom_func).alias(&quot;mapped&quot;))
+
+print(out.collect())
+</code></pre>
+<pre><code class="language-text">shape: (5, 2)
+╭─────┬────────╮
+│ foo ┆ mapped │
+│ --- ┆ ---    │
+│ i64 ┆ str    │
+╞═════╪════════╡
+│ 1   ┆ &quot;foo&quot;  │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤
+│ 2   ┆ &quot;bar&quot;  │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤
+│ 3   ┆ &quot;ham&quot;  │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤
+│ 4   ┆ &quot;spam&quot; │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤
+│ 5   ┆ &quot;eggs&quot; │
+╰─────┴────────╯
+</code></pre>
+<h3 id="groupby"><a class="header" href="#groupby">GroupBy</a></h3>
+<p>You can also use custom functions in a GroupBy context. The most intuitive way to apply custom functions is with the
+<code>apply_groups</code> method. This method will receive a <code>Series</code> of every group as input. Below we'll show 3 ways the get
+the length of the groups, where 2 use custom functions.</p>
+<pre><code class="language-python">import polars as pl
+from polars.lazy import *
+
+
+df = pl.DataFrame(
+    {
+        &quot;A&quot;: [1, 2, 3, 4, 5],
+        &quot;fruits&quot;: [&quot;banana&quot;, &quot;banana&quot;, &quot;apple&quot;, &quot;apple&quot;, &quot;banana&quot;],
+        &quot;B&quot;: [5, 4, 3, 2, 1],
+        &quot;cars&quot;: [&quot;beetle&quot;, &quot;audi&quot;, &quot;beetle&quot;, &quot;beetle&quot;, &quot;beetle&quot;],
+    }
+)
+
+# two ways to determine the length groups.
+out = (
+    df.lazy()
+    .groupby(&quot;fruits&quot;)
+    .agg(
+        [
+            col(&quot;cars&quot;).apply(lambda groups: groups.len()).alias(&quot;custom_1&quot;),
+            col(&quot;cars&quot;).apply(lambda groups: groups.len()).alias(&quot;custom_2&quot;),
+            pl.count(&quot;cars&quot;),
+        ]
+    )
+)
+
+print(out.collect())
+</code></pre>
+<pre><code class="language-text">shape: (2, 4)
+╭──────────┬──────────┬──────────┬────────────╮
+│ fruits   ┆ custom_1 ┆ custom_2 ┆ cars_count │
+│ ---      ┆ ---      ┆ ---      ┆ ---        │
+│ str      ┆ i64      ┆ i64      ┆ u32        │
+╞══════════╪══════════╪══════════╪════════════╡
+│ &quot;apple&quot;  ┆ 2        ┆ 2        ┆ 2          │
+├╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ &quot;banana&quot; ┆ 3        ┆ 3        ┆ 3          │
+╰──────────┴──────────┴──────────┴────────────╯
+</code></pre>
+<h1 id="how-can-i-process-strings"><a class="header" href="#how-can-i-process-strings">How can I process strings</a></h1>
+<p>Polars exposes fast string processing methods. </p>
+<p>These operations are very fast as opposed to string operations in numpy / Pandas. 
+In the latter, strings are stored as Python objects and during traversal the array/ Series the cpu needs to follow all 
+the string pointers to different memory locations which expensive.</p>
+<p>In Polars/ Arrow the strings are contiguous in memory and traversal is cache optimal and predictable for the cpu.</p>
+<p>The string processing functions available are:</p>
+<ul>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.Expr.str_parse_date">str_parse_date</a></li>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.Expr.str_contains">str_contains</a></li>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.Expr.str_lengths">str_lengths</a></li>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.Expr.str_replace">str_replace</a></li>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.Expr.str_replace_all">str_replace_all</a></li>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.Expr.str_to_lowercase">str_to_lowercase</a></li>
+<li><a href="https://ritchie46.github.io/polars/polars/lazy/index.html#polars.lazy.Expr.str_to_uppercase">str_to_uppercase</a></li>
+</ul>
+<h2 id="examples-5"><a class="header" href="#examples-5">Examples</a></h2>
+<h3 id="string-lengths"><a class="header" href="#string-lengths">string lengths</a></h3>
+<pre><code class="language-python">import polars as pl
+from polars.lazy import col
+
+df = pl.DataFrame({&quot;shakespeare&quot;: &quot;All that glitters is not gold&quot;.split(&quot; &quot;)})
+
+str_lengths = df.lazy().with_column(
+    col(&quot;shakespeare&quot;).str_lengths().alias(&quot;letter_count&quot;)
+print(str_lengths.collect())
+</code></pre>
+<pre><code class="language-text">shape: (6, 2)
+╭─────────────┬──────────────╮
+│ shakespeare ┆ letter_count │
+│ ---         ┆ ---          │
+│ str         ┆ u32          │
+╞═════════════╪══════════════╡
+│ &quot;All&quot;       ┆ 3            │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ &quot;that&quot;      ┆ 4            │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ &quot;glitters&quot;  ┆ 8            │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ &quot;is&quot;        ┆ 2            │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ &quot;not&quot;       ┆ 3            │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ &quot;gold&quot;      ┆ 4            │
+╰─────────────┴──────────────╯
+</code></pre>
+<h3 id="contains"><a class="header" href="#contains">contains</a></h3>
+<p>Below we use a regex pattern to filter articles (the, a, and, etc.) from a sentence.</p>
+<pre><code class="language-python">df = pl.DataFrame({&quot;a&quot;: &quot;The man that ate a whole cake&quot;.split(&quot; &quot;)})
+
+filtered = df.lazy().filter(col(&quot;a&quot;).str_contains(r&quot;(?i)^the$|^a$&quot;).is_not())
+print(filtered.collect())
+</code></pre>
+<pre><code class="language-text">shape: (5, 1)
+╭─────────╮
+│ a       │
+│ ---     │
+│ str     │
+╞═════════╡
+│ &quot;man&quot;   │
+├╌╌╌╌╌╌╌╌╌┤
+│ &quot;that&quot;  │
+├╌╌╌╌╌╌╌╌╌┤
+│ &quot;ate&quot;   │
+├╌╌╌╌╌╌╌╌╌┤
+│ &quot;whole&quot; │
+├╌╌╌╌╌╌╌╌╌┤
+│ &quot;cake&quot;  │
+╰─────────╯
+</code></pre>
+<h1 id="how-can-i-apply-window-functions"><a class="header" href="#how-can-i-apply-window-functions">How can I apply window functions?</a></h1>
+<p>Polars supports window functions inspired by <a href="https://www.postgresql.org/docs/9.1/tutorial-window.html">postgres</a>. Pandas
+users may know these as a <code>groupby.transform(aggregation)</code>. </p>
+<p>Polars window functions are much more elegant than Pandas transform. We can apply multiple functions over multiple columns in 
+single expression!</p>
+<h2 id="examples-6"><a class="header" href="#examples-6">Examples</a></h2>
+<pre><code class="language-python">import polars as pl
+
+df = pl.DataFrame(
+    {
+        &quot;A&quot;: [1, 2, 3, 4, 5],
+        &quot;fruits&quot;: [&quot;banana&quot;, &quot;banana&quot;, &quot;apple&quot;, &quot;apple&quot;, &quot;banana&quot;],
+        &quot;B&quot;: [5, 4, 3, 2, 1],
+        &quot;cars&quot;: [&quot;beetle&quot;, &quot;audi&quot;, &quot;beetle&quot;, &quot;beetle&quot;, &quot;beetle&quot;],
+    }
+)
+
+
+print(df)
+</code></pre>
+<pre><code class="language-text">shape: (5, 4)
+╭─────┬──────────┬─────┬──────────╮
+│ A   ┆ fruits   ┆ B   ┆ cars     │
+│ --- ┆ ---      ┆ --- ┆ ---      │
+│ i64 ┆ str      ┆ i64 ┆ str      │
+╞═════╪══════════╪═════╪══════════╡
+│ 1   ┆ &quot;banana&quot; ┆ 5   ┆ &quot;beetle&quot; │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
+│ 2   ┆ &quot;banana&quot; ┆ 4   ┆ &quot;audi&quot;   │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
+│ 3   ┆ &quot;apple&quot;  ┆ 3   ┆ &quot;beetle&quot; │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
+│ 4   ┆ &quot;apple&quot;  ┆ 2   ┆ &quot;beetle&quot; │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
+│ 5   ┆ &quot;banana&quot; ┆ 1   ┆ &quot;beetle&quot; │
+╰─────┴──────────┴─────┴──────────╯
+</code></pre>
+<pre><code class="language-python">windows = df.lazy().with_columns(
+    [
+        pl.sum(&quot;A&quot;).over(&quot;fruits&quot;).alias(&quot;fruit_sum_A&quot;),
+        pl.first(&quot;B&quot;).over(&quot;fruits&quot;).alias(&quot;fruit_first_B&quot;),
+        pl.max(&quot;B&quot;).over(&quot;cars&quot;).alias(&quot;cars_max_B&quot;),
+    ]
+)
+
+print(windows.collect())
+</code></pre>
+<pre><code class="language-text">shape: (5, 7)
+╭─────┬──────────┬─────┬──────────┬─────────────┬───────────────┬────────────╮
+│ A   ┆ fruits   ┆ B   ┆ cars     ┆ fruit_sum_A ┆ fruit_first_B ┆ cars_max_B │
+│ --- ┆ ---      ┆ --- ┆ ---      ┆ ---         ┆ ---           ┆ ---        │
+│ i64 ┆ str      ┆ i64 ┆ str      ┆ i64         ┆ i64           ┆ i64        │
+╞═════╪══════════╪═════╪══════════╪═════════════╪═══════════════╪════════════╡
+│ 1   ┆ &quot;banana&quot; ┆ 5   ┆ &quot;beetle&quot; ┆ 8           ┆ 5             ┆ 5          │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 2   ┆ &quot;banana&quot; ┆ 4   ┆ &quot;audi&quot;   ┆ 8           ┆ 5             ┆ 4          │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 3   ┆ &quot;apple&quot;  ┆ 3   ┆ &quot;beetle&quot; ┆ 7           ┆ 3             ┆ 5          │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 4   ┆ &quot;apple&quot;  ┆ 2   ┆ &quot;beetle&quot; ┆ 7           ┆ 3             ┆ 5          │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ 5   ┆ &quot;banana&quot; ┆ 1   ┆ &quot;beetle&quot; ┆ 8           ┆ 5             ┆ 5          │
+╰─────┴──────────┴─────┴──────────┴─────────────┴───────────────┴────────────╯
+</code></pre>
+<h1 id="how-can-i-split--apply--combine"><a class="header" href="#how-can-i-split--apply--combine">How can I split / apply / combine?</a></h1>
+<p>This example shows how you idiomatically would determine differences per group. Let's imagine we have a dataset with
+some unique identifier <strong>uid</strong>, some dates per <strong>uid</strong> as <strong>date</strong> column, and a number of cumulative COVID cases per
+<strong>date</strong>. </p>
+<p>Now we want to find the determine the difference (i.e. the increase of COVID cases per day per group.)</p>
+<h2 id="dataset-setup"><a class="header" href="#dataset-setup">Dataset setup</a></h2>
+<p>First we create the example dataset of this problem.</p>
+<pre><code class="language-python">import polars as pl
+from polars.lazy import col, lit
+import numpy as np
+
+uid = [item for sublist in [4 * [r] for r in range(3)] for item in sublist]
+date = [
+    &quot;2020-12-20&quot;,
+    &quot;2020-12-21&quot;,
+    &quot;2020-12-22&quot;,
+    &quot;2020-12-23&quot;,
+]
+cumcases = [20, 40, 67, 80]
+
+df = pl.DataFrame(
+    {
+        &quot;uid&quot;: uid,
+        &quot;date&quot;: np.hstack([date, date, date]),
+        &quot;cumcases&quot;: np.hstack(
+            [cumcases, [2 * c for c in cumcases], [3 * c for c in cumcases]]
+        ),
+    }
+)
+
+
+print(df)
+</code></pre>
+<pre><code class="language-text">shape: (12, 3)
+╭─────┬──────────────┬──────────╮
+│ uid ┆ date         ┆ cumcases │
+│ --- ┆ ---          ┆ ---      │
+│ i64 ┆ str          ┆ i64      │
+╞═════╪══════════════╪══════════╡
+│ 0   ┆ &quot;2020-12-20&quot; ┆ 20       │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
+│ 0   ┆ &quot;2020-12-21&quot; ┆ 40       │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
+│ 0   ┆ &quot;2020-12-22&quot; ┆ 67       │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
+│ 0   ┆ &quot;2020-12-23&quot; ┆ 80       │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
+│ ... ┆ ...          ┆ ...      │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
+│ 1   ┆ &quot;2020-12-23&quot; ┆ 160      │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
+│ 2   ┆ &quot;2020-12-20&quot; ┆ 60       │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
+│ 2   ┆ &quot;2020-12-21&quot; ┆ 120      │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
+│ 2   ┆ &quot;2020-12-22&quot; ┆ 201      │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┤
+│ 2   ┆ &quot;2020-12-23&quot; ┆ 240      │
+╰─────┴──────────────┴──────────╯
+</code></pre>
+<h2 id="query"><a class="header" href="#query">Query</a></h2>
+<pre><code class="language-python">def mkdiff(cumcases: pl.Series) -&gt; pl.Series:
+    &quot;&quot;&quot;
+    Creates a new Series with differences per row
+    &quot;&quot;&quot;
+    return cumcases - cumcases.shift(1)
+
+
+base_df = (
+    df.lazy()
+    # first parse column as date32
+    .with_column(col(&quot;date&quot;).str_parse_date(pl.Date32))
+    # next create a sorting key defined by the group uid + date_integer
+    .with_column(
+        (col(&quot;uid&quot;).cast(str) + lit(&quot;-&quot;) + col(&quot;date&quot;).cast(int)).alias(&quot;sort_key&quot;)
+    )
+    # sort all values on the sorting key so that
+    # the mkdiff function get's sorted values on date per group
+    .sort(&quot;sort_key&quot;)
+)
+
+# Next we group by uid and aggregate to different
+# Series lists that we later explode and join back on the main DataFrame
+out = (
+    base_df.groupby(&quot;uid&quot;)
+    .agg(
+        [
+            col(&quot;date&quot;).list().alias(&quot;date&quot;),
+            col(&quot;cumcases&quot;).apply(mkdiff).alias(&quot;diff_cases&quot;),
+        ]
+    )
+    .explode([&quot;date&quot;, &quot;diff_cases&quot;])
+    .join(base_df, on=[&quot;uid&quot;, &quot;date&quot;])
+)
+
+print(df)
+</code></pre>
+<pre><code class="language-text">shape: (12, 5)
+╭─────┬──────────────┬────────────┬──────────┬───────────╮
+│ uid ┆ date         ┆ diff_cases ┆ cumcases ┆ sort_key  │
+│ --- ┆ ---          ┆ ---        ┆ ---      ┆ ---       │
+│ i64 ┆ date32(days) ┆ i64        ┆ i64      ┆ str       │
+╞═════╪══════════════╪════════════╪══════════╪═══════════╡
+│ 0   ┆ 2020-12-20   ┆ null       ┆ 20       ┆ &quot;0-18616&quot; │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┤
+│ 0   ┆ 2020-12-21   ┆ 20         ┆ 40       ┆ &quot;0-18617&quot; │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┤
+│ 0   ┆ 2020-12-22   ┆ 27         ┆ 67       ┆ &quot;0-18618&quot; │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┤
+│ 0   ┆ 2020-12-23   ┆ 13         ┆ 80       ┆ &quot;0-18619&quot; │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┤
+│ ... ┆ ...          ┆ ...        ┆ ...      ┆ ...       │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┤
+│ 1   ┆ 2020-12-23   ┆ 26         ┆ 160      ┆ &quot;1-18619&quot; │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┤
+│ 2   ┆ 2020-12-20   ┆ null       ┆ 60       ┆ &quot;2-18616&quot; │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┤
+│ 2   ┆ 2020-12-21   ┆ 60         ┆ 120      ┆ &quot;2-18617&quot; │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┤
+│ 2   ┆ 2020-12-22   ┆ 81         ┆ 201      ┆ &quot;2-18618&quot; │
+├╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┤
+│ 2   ┆ 2020-12-23   ┆ 39         ┆ 240      ┆ &quot;2-18619&quot; │
+╰─────┴──────────────┴────────────┴──────────┴───────────╯
+</code></pre>
+<h1 id="numpy-interoperability"><a class="header" href="#numpy-interoperability">Numpy interoperability</a></h1>
+<p>Polars Series have support for numpy's <a href="https://numpy.org/doc/stable/reference/ufuncs.html">universal functions</a>.
+That means that numpys elementwise function like <code>np.exp</code>, <code>np.cos</code>, <code>np.div</code>, etc. all work with almost zero overhead.
+There are few gotcha's however. </p>
+<ul>
+<li>Missing values are a separate bitmask and are not visible by numpy
+<ul>
+<li>✗ a window function or a convolve can therefore give flawed results.</li>
+<li>✔ elementwise functions preserve missing values</li>
+</ul>
+</li>
+</ul>
+<h2 id="conversion"><a class="header" href="#conversion">Conversion</a></h2>
+<p>You can convert a <code>Series</code> to a numpy array with the <code>.to_numpy</code> method. Missing values will be replaced by <code>NaN</code> during
+the conversion. If the Series doesn't have missing values, or you don't care about them, you can use the <code>.view</code> method.
+This provides a zero copy numpy array of the <code>Series</code> data.</p>
+<h1 id="reference-guide-1"><a class="header" href="#reference-guide-1">Reference guide</a></h1>
+<p>Need to see all available methods/ functions of Polars? The reference guide is your best bet.</p>
+<ul>
+<li><a href="https://ritchie46.github.io/polars/python/polars/index.html">Python</a></li>
+<li><a href="https://ritchie46.github.io/polars/polars/index.html">Rust master</a></li>
+<li><a href="https://docs.rs/polars/">Rust release</a></li>
+</ul>
+<h1 id="polars"><a class="header" href="#polars">Polars</a></h1>
+<p>Polars is a blazingly fast DataFrame library. Take look at the results in <a href="https://h2oai.github.io/db-benchmark/">h20ai's db-benchmark</a>. </p>
+<h2 id="performance-and-string-data"><a class="header" href="#performance-and-string-data">Performance and string data</a></h2>
+<p>Understanding the memory format used by Arrow/ Polars can really increase performance of your
+queries. This is especially true for large string data. The figure below shows how an Arrow UTF8
+array is laid out in memory.</p>
+<p>The array <code>[&quot;foo&quot;, &quot;bar&quot;, &quot;ham&quot;]</code> is encoded by </p>
+<ul>
+<li>a concatenated string <code>&quot;foobarham&quot;</code></li>
+<li>an offset array indicating the start (and end) of each string <code>[0, 2, 5, 8]</code></li>
+<li>a null bitmap, indicating null values</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/ritchie46/img/master/polars/arrow/arrow_string.svg" alt="" /></p>
+<p>This memory structure is very cache efficient if we are to read the string values. Especially if
+we compare it to a <code>Vec&lt;String&gt;</code> (an array of heap allocated string data in Rust).</p>
+<p><img src="https://raw.githubusercontent.com/ritchie46/img/master/polars/arrow/pandas_string.svg" alt="" /></p>
+<p>However, if we need to reorder the Arrow UTF8 array, we need to swap around all the bytes of the
+string values, which can become very expensive when we're dealing with large strings. On the
+other hand, for the <code>Vec&lt;String&gt;</code>, we only need to swap pointers around which is only 8 bytes data
+that have to be moved.</p>
+<p>If you have a <code>DataFrame</code> with a large number of
+Utf8 <code>Series</code> and you need to reorder them due to an
+operation like a FILTER, JOIN, GROUPBY, etc. than this can become quite expensive.</p>
+<h2 id="categorical-type"><a class="header" href="#categorical-type">Categorical type</a></h2>
+<p>For this reason Polars has a <code>CategoricalType</code>. A Categorical
+<code>Series</code> is an array filled with <code>u32</code> values that each represent a unique string value.
+Thereby maintaining cache-efficiency, whilst also making it cheap to move values around.</p>
+<h3 id="example-single-dataframe"><a class="header" href="#example-single-dataframe">Example: Single DataFrame</a></h3>
+<p>In the example below we show how you can cast an Utf8 <code>Series</code> column to a Categorical <code>Series</code>.</p>
+<pre><code class="language-python">import polars as pl
+
+df[&quot;utf8-column&quot;].cast(pl.Categorical)
+</code></pre>
+<h3 id="example-eager-join-multiple-dataframes-on-a-categorical"><a class="header" href="#example-eager-join-multiple-dataframes-on-a-categorical">Example: Eager join multiple DataFrames on a Categorical</a></h3>
+<p>When the strings of one column need to be joined with the string data from another <code>DataFrame</code>.
+The <code>Categorical</code> data needs to be synchronized (Categories in <code>df A</code> need to point to the same
+underlying string data as Categories in <code>df B</code>). You can do by casting data int he <code>StringCache</code> context manager. 
+This will synchronize all seen string values for the duration of that context manager. If you want the global string cache
+to be existent during the whole program run, you can set <code>toggle_string_cache</code> to <code>True</code></p>
+<pre><code class="language-python">import polars as pl
+
+df_a = pl.DataFrame({&quot;a&quot;: [&quot;foo&quot;, &quot;bar&quot;, &quot;ham&quot;], &quot;b&quot;: [1, 2, 3]})
+df_b = pl.DataFrame({&quot;a&quot;: [&quot;foo&quot;, &quot;spam&quot;, &quot;eggs&quot;], &quot;c&quot;: [3, 2, 2]})
+
+with pl.StringCache():
+    df_a[&quot;a&quot;] = df_a[&quot;a&quot;].cast(pl.Categorical)
+    df_b[&quot;a&quot;] = df_b[&quot;a&quot;].cast(pl.Categorical)
+
+
+</code></pre>
+<h3 id="example-lazy-join-multiple-dataframes-on-a-categorical"><a class="header" href="#example-lazy-join-multiple-dataframes-on-a-categorical">Example: Lazy join multiple DataFrames on a Categorical</a></h3>
+<p>A lazy Query always has a global string cache (unless you opt-out) for the duration of that query (until <code>collect</code> is called).
+The example below shows how you could join two DataFrames with Categorical types.</p>
+<pre><code class="language-python">df_a = pl.DataFrame({&quot;a&quot;: [&quot;foo&quot;, &quot;bar&quot;, &quot;ham&quot;], &quot;b&quot;: [1, 2, 3]}).lazy()
+df_b = pl.DataFrame({&quot;a&quot;: [&quot;foo&quot;, &quot;spam&quot;, &quot;eggs&quot;], &quot;c&quot;: [3, 2, 2]}).lazy()
+
+df_a = df_a.with_column(pl.col(&quot;a&quot;).cast(pl.Categorical))
+df_b = df_b.with_column(pl.col(&quot;a&quot;).cast(pl.Categorical))
+
+df_a.join(df_b, on=&quot;a&quot;, how=&quot;inner&quot;)
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
